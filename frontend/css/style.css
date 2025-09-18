@@ -1,0 +1,536 @@
+/* 全局样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* 按钮样式 */
+.btn-primary {
+    background-color: #FFD700; /* 黄色强调色 */
+    color: #333;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #FFC700; /* 稍深的黄色 */
+}
+
+.btn-secondary {
+    background-color: #f0f0f0;
+    color: #333;
+    border: 1px solid #ddd;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-secondary:hover {
+    background-color: #e0e0e0;
+}
+
+/* 表单样式 */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* 消息样式 */
+.message {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.message.error {
+    background-color: #ffebee;
+    color: #d32f2f;
+    border: 1px solid #ffcdd2;
+}
+
+.message.success {
+    background-color: #e8f5e9;
+    color: #388e3c;
+    border: 1px solid #c8e6c9;
+}
+
+/* 认证页面样式 */
+#auth-container {
+    max-width: 400px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+#auth-container h1 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+#auth-container p {
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.auth-tabs {
+    display: flex;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.auth-tabs button {
+    flex: 1;
+    padding: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    color: #666;
+    transition: color 0.3s;
+}
+
+.auth-tabs button.active {
+    color: #FFD700; /* 黄色强调色 */
+    border-bottom: 2px solid #FFD700;
+}
+
+.auth-form {
+    text-align: left;
+}
+
+/* 主应用界面样式 */
+#main-app header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.main-content {
+    display: flex;
+    gap: 20px;
+}
+
+.sidebar {
+    width: 200px;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background: none;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.nav-btn:hover {
+    background-color: #f5f5f5;
+}
+
+.nav-btn.active {
+    background-color: #FFD700; /* 黄色强调色 */
+    color: #333;
+    font-weight: bold;
+}
+
+.content {
+    flex: 1;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.page {
+    display: block;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* 好友列表样式 */
+.friends-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.friend-card {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.friend-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.friend-card h3 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.friend-card .friend-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+/* 聊天页面样式 */
+.chat-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.chat-messages {
+    height: 400px;
+    overflow-y: auto;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.message-bubble {
+    max-width: 70%;
+    padding: 10px 15px;
+    border-radius: 18px;
+    margin-bottom: 10px;
+    word-wrap: break-word;
+    position: relative;
+}
+
+.message-bubble.sent {
+    background-color: #FFD700; /* 黄色强调色 */
+    color: #333;
+    align-self: flex-end;
+    margin-left: auto;
+}
+
+.message-bubble.received {
+    background-color: #e0e0e0;
+    color: #333;
+    align-self: flex-start;
+}
+
+.message-content {
+    margin-bottom: 5px;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.message-time {
+    font-size: 11px;
+    color: #666;
+    opacity: 0.7;
+    text-align: right;
+}
+
+.message-bubble.received .message-time {
+    text-align: left;
+}
+
+/* 聊天状态消息样式 */
+.loading-message, .empty-chat-message, .error-message {
+    text-align: center;
+    padding: 30px 20px;
+    color: #666;
+    font-style: italic;
+}
+
+.loading-message {
+    color: #2196F3;
+    font-weight: 500;
+}
+
+.empty-chat-message {
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    border: 2px dashed #ddd;
+}
+
+.empty-chat-message p {
+    margin: 5px 0;
+}
+
+.empty-chat-message p:first-child {
+    font-weight: bold;
+    color: #555;
+    font-size: 16px;
+}
+
+.error-message {
+    color: #d32f2f;
+    background-color: #ffebee;
+    border: 1px solid #ffcdd2;
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+.chat-input {
+    display: flex;
+    gap: 10px;
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* 个人资料页面样式 */
+.profile-info {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.info-item {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.info-label {
+    font-weight: bold;
+    width: 100px;
+}
+
+.coin-records {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.coin-record {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.coin-record:last-child {
+    border-bottom: none;
+}
+
+.coin-amount {
+    font-weight: bold;
+}
+
+.coin-amount.positive {
+    color: #388e3c; /* 绿色 */
+}
+
+.coin-amount.negative {
+    color: #d32f2f; /* 红色 */
+}
+
+/* 奖品兑换页面样式 */
+.prizes-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.prize-card {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.prize-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.prize-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.prize-info {
+    padding: 15px;
+}
+
+.prize-info h3 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.prize-info p {
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.prize-cost {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.prize-cost .cost {
+    font-weight: bold;
+    color: #FFD700; /* 黄色强调色 */
+}
+
+/* 模态框样式 */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: #fff;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+}
+
+.modal-body {
+    padding: 15px;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        width: 100%;
+        display: flex;
+        overflow-x: auto;
+        padding: 10px;
+    }
+    
+    .nav-btn {
+        min-width: 100px;
+        margin-right: 10px;
+        margin-bottom: 0;
+    }
+    
+    .friends-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .prizes-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 页脚样式 */
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 0 0;
+    padding: 15px 25px; /* 减少垂直内边距，保持水平内边距 */
+    color: #B8860B; /* 深黄色 - 更深的黄色 */
+    font-size: 16px;
+    font-weight: bold;
+    border-top: 1px solid #FFD700;
+    background-color: #FFFBE5; /* 浅黄色背景 */
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+/* 确保body有足够的空间给固定页脚 */
+body {
+    min-height: 100vh;
+    padding-bottom: 50px; /* 减少为固定页脚留出的空间 */
+}

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyChat - 学习聊天室</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- 登录/注册页面 -->
+        <div id="auth-container" class="container">
+            <h1>StudyChat</h1>
+            <p>学习聊天室，一起学习，一起成长</p>
+            
+            <div class="auth-tabs">
+                <button id="login-tab" class="active">登录</button>
+                <button id="register-tab">注册</button>
+            </div>
+            
+            <!-- 登录表单 -->
+            <div id="login-form" class="auth-form">
+                <div class="form-group">
+                    <label for="login-username">用户名</label>
+                    <input type="text" id="login-username" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">密码</label>
+                    <input type="password" id="login-password" required>
+                </div>
+                <button id="login-btn" class="btn-primary">登录</button>
+            </div>
+            
+            <!-- 注册表单 -->
+            <div id="register-form" class="auth-form" style="display: none;">
+                <div class="form-group">
+                    <label for="register-username">用户名</label>
+                    <input type="text" id="register-username" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-email">邮箱</label>
+                    <input type="email" id="register-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-password">密码</label>
+                    <input type="password" id="register-password" required>
+                </div>
+                <button id="register-btn" class="btn-primary">注册</button>
+            </div>
+            
+            <div id="auth-message" class="message"></div>
+        </div>
+        
+        <!-- 主应用界面 -->
+        <div id="main-app" class="container" style="display: none;">
+            <header>
+                <h1>StudyChat</h1>
+                <div class="user-info">
+                    <span id="user-coins">硬币: 0</span>
+                    <button id="logout-btn" class="btn-secondary">退出登录</button>
+                </div>
+            </header>
+            
+            <div class="main-content">
+                <!-- 侧边栏 -->
+                <aside class="sidebar">
+                    <nav>
+                        <button id="friends-nav" class="nav-btn active">好友列表</button>
+                        <button id="profile-nav" class="nav-btn">个人资料</button>
+                        <button id="prizes-nav" class="nav-btn">奖品兑换</button>
+                    </nav>
+                </aside>
+                
+                <!-- 主内容区 -->
+                <main class="content">
+                    <!-- 好友列表页面 -->
+                    <div id="friends-page" class="page">
+                        <div class="page-header">
+                            <h2>好友列表</h2>
+                            <button id="add-friend-btn" class="btn-primary">添加好友</button>
+                        </div>
+                        <div id="friends-list" class="friends-list">
+                            <!-- 好友列表将通过JavaScript动态生成 -->
+                        </div>
+                    </div>
+                    
+                    <!-- 聊天页面 -->
+                    <div id="chat-page" class="page" style="display: none;">
+                        <div class="chat-header">
+                            <button id="back-to-friends" class="btn-secondary">返回</button>
+                            <h2 id="chat-friend-name">好友名称</h2>
+                        </div>
+                        <div id="chat-messages" class="chat-messages">
+                            <!-- 聊天消息将通过JavaScript动态生成 -->
+                        </div>
+                        <div class="chat-input">
+                            <input type="text" id="message-input" placeholder="输入消息...">
+                            <button id="send-message-btn" class="btn-primary">发送</button>
+                        </div>
+                    </div>
+                    
+                    <!-- 个人资料页面 -->
+                    <div id="profile-page" class="page" style="display: none;">
+                        <h2>个人资料</h2>
+                        <div class="profile-info">
+                            <div class="info-item">
+                                <span class="info-label">用户名:</span>
+                                <span id="profile-username">-</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">邮箱:</span>
+                                <span id="profile-email">-</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">硬币数量:</span>
+                                <span id="profile-coins">-</span>
+                            </div>
+                        </div>
+                        <h3>硬币记录</h3>
+                        <div id="coin-records" class="coin-records">
+                            <!-- 硬币记录将通过JavaScript动态生成 -->
+                        </div>
+                    </div>
+                    
+                    <!-- 奖品兑换页面 -->
+                    <div id="prizes-page" class="page" style="display: none;">
+                        <h2>奖品兑换</h2>
+                        <div id="prizes-list" class="prizes-list">
+                            <!-- 奖品列表将通过JavaScript动态生成 -->
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+        
+        <!-- 添加好友模态框 -->
+        <div id="add-friend-modal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>添加好友</h3>
+                    <button id="close-add-friend" class="close-btn">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="friend-username">好友用户名</label>
+                        <input type="text" id="friend-username" required>
+                    </div>
+                    <button id="confirm-add-friend" class="btn-primary">添加</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="/static/js/api.js"></script>
+    <script>
+        // 确保API实例在全局可用
+        window.api = api;
+    </script>
+    <script src="/static/js/app.js"></script>
+    <div class="footer">2025程序设计综合实践C408/C409</div>
+</body>
+</html>
