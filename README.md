@@ -12,7 +12,7 @@
 
 ## 技术栈
 
-- 后端: Python,FastAPI
+- 后端: Python, FastAPI
 - 前端: HTML, CSS, JavaScript
 - 数据库: MySQL
 
